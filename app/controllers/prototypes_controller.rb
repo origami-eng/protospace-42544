@@ -8,9 +8,7 @@ class PrototypesController < ApplicationController
   def show
     @prototype = Prototype.find(params[:id])
     @comments = @prototype.comments.includes(:user)
-    if user_signed_in?
-      @comment = Comment.new
-    end
+    @comment = Comment.new
   end
   
   def new
